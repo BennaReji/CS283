@@ -10,15 +10,16 @@ void print_buff(char *, int);
 int setup_buff(char *, char *, int);
 
 // prototypes for functions to handle required functionality
-int count_words(char *, int, int);
-void reverse_string(char *, int, int);
-void word_print(char *, int, int);
-void word_replace(char *, char *, char *, int);
+int count_words(char *, int, int);              // Counts the wrods in the buffer
+void reverse_string(char *, int, int);          // Reverse the string in the buffer
+void word_print(char *, int, int);              // prints each word  with its length
+void word_replace(char *, char *, char *, int); // Replaces a word with another
 
 // add additional prototypes here
 int whitespace(char);
 int get_word_length(char *);
 
+// sets up the buffer by removing extra spaces and truncating if necessary
 int setup_buff(char *buff, char *user_str, int len)
 {
     char *buff_ptr = buff;
@@ -56,6 +57,7 @@ int setup_buff(char *buff, char *user_str, int len)
     return char_count;
 }
 
+// prints the buffer content
 void print_buff(char *buff, int len)
 {
     printf("Buffer:  ");
@@ -71,6 +73,7 @@ void usage(char *exename)
     printf("usage: %s [-h|c|r|w|x] \"string\" [other args]\n", exename);
 }
 
+// Counts the words in the buffer. It iterates through the buffer and counts words and finally returns the word count.
 int count_words(char *buff, int len, int str_len)
 {
     int wc = 0;
@@ -96,6 +99,7 @@ int count_words(char *buff, int len, int str_len)
 
 // ADD OTHER HELPER FUNCTIONS HERE FOR OTHER REQUIRED PROGRAM OPTIONS
 
+// Reverse the string in the buffer and prints it. It iterates backward and prints it out.
 void reverse_string(char *buff, int len, int str_len)
 {
     printf("Reversed String: ");
@@ -110,6 +114,8 @@ void reverse_string(char *buff, int len, int str_len)
     putchar('\n');
 }
 
+// Prints each word in the buffer with its length. It loops hrough the buffer checking for non-whitespace to find start word, then prints the word by its charcter count.
+// The functions stops when it finds "."
 void word_print(char *buff, int len, int str_len)
 {
     int wc = 0;
