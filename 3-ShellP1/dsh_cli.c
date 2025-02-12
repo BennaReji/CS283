@@ -66,7 +66,6 @@ int main()
             break;
         }
 
-        /* Remove the trailing newline from cmd_buff */
         cmd_buff[strcspn(cmd_buff, "\n")] = '\0';
 
         if (strcmp(cmd_buff, EXIT_CMD) == 0)
